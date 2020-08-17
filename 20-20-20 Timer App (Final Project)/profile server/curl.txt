@@ -1,0 +1,17 @@
+# Create item
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"od":"-2.00 SPH +2.00 add 0.5 p.d. BD","os":"-1.00 -0.50 x 180 +2.00 add 0.5 p.d. BU","gp": "Dr. Glass", "opto": "Dr. Eye", "conditions": "N/A"}' \
+  http://localhost:8080/api/profile
+
+# Update item
+curl --header "Content-Type: application/json" \
+  --request PUT \
+  --data '{"od":"-2.00 SPH +2.00 add 0.5 p.d. BD","os":"-1.00 -0.50 x 180 +2.00 add 0.5 p.d. BU","gp": "Dr. Glass", "opto": "N/A", "conditions": "N/A"}' \
+  http://localhost:8080/api/profile/5f385f3306ffe82210927e46
+
+
+ # Remove item
+curl --header "Content-Type: application/json" \
+  --request DELETE \
+  http://localhost:8080/api/profile/5f385f3306ffe82210927e46

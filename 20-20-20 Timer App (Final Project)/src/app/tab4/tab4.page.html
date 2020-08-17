@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Eye Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="secondary">
+
+  <ion-card *ngIf = "profile_info.length ==! 0">
+    <ion-card-header>
+      <ion-card-title>Eye Profile:</ion-card-title>
+    </ion-card-header>
+  
+  <!-- Defines profile appearance -->  
+    <ion-card-content *ngFor = "let profile of profile_info; let i = index">
+      <ion-list>
+        <ion-item>O.D. (If Applicable): {{profile.od}}</ion-item>
+        <ion-item>O.S. (If Applicable): {{profile.os}}</ion-item>
+        <ion-item>Doctor Info (GP): {{profile.gp}}</ion-item>
+        <ion-item>Optometrist Info (If Applicable): {{profile.opto}}</ion-item>
+        <ion-item>Conditions (If Applicable): {{profile.conditions}}</ion-item>
+      </ion-list>
+      <!-- Defines a block button for editing a profile --> 
+      <ion-button expand="block" color="primary" (click) = "edit_profile(profile, i)">Edit Profile</ion-button>
+      <!-- Defines a block button for deleting a profile -->
+      <ion-button expand="block" color="primary" (click) = "deleting_profile(profile, _id)">Delete Profile</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf = "profile_info.length == 0">
+    <ion-card-header>
+      <ion-card-title>Eye Profile:</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      No profile details found. To create a new eye profile, please press the button located at the bottom of this page.
+    </ion-card-content>
+
+  </ion-card>
+
+ <!-- Defines a floating action button for creating a profile --> 
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed" *ngIf = "profile_info.length == 0">
+    <ion-fab-button (click) = "add_profile()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

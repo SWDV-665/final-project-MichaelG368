@@ -1,0 +1,8 @@
+{
+  "name": "20/20/20 Timer App",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

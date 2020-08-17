@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Active Timer
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="secondary">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Active Timer</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<!-- Defines active timer -->
+  <div class="container">
+  <div class="circle">
+    <svg width="300" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(110,110)">
+        <circle r="100" class="e-c-progress"/>
+        <g id="e-pointer">
+        </g>
+      </g>
+    </svg>
+  </div>
+    <div class="controls">
+      <div class="display-remain-time" role="timer"><countdown #cd1 [config]="{ leftTime: 1200, format: 'mm:ss', demand: true }"></countdown></div>
+      </div>
+</div>
+</ion-content>
+
+<ion-footer>
+  <!-- Defines a block button to start/resume timer --> 
+  <ion-button expand="block" (click)="cd1.begin()" (click)="cd1.resume()" color="primary">Start/Resume Timer</ion-button>
+  <!-- Defines a block button to pause timer -->
+  <ion-button expand="block" (click)="cd1.pause()" color="primary">Pause Timer</ion-button>
+  <!-- Defines a block button to reset timer -->
+  <ion-button expand="block" (click)="cd1.restart()" color="primary">Reset Timer</ion-button>
+</ion-footer>
